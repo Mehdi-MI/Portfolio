@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaCode } from 'react-icons/fa'
-import { personalInfo, socialLinks } from '../../data/portfolioData'
+import { personalInfo, socialLinks } from '../../data/portfolioData.js'
 import './Hero.css'
 
 const Hero = () => {

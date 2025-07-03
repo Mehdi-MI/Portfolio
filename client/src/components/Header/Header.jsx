@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { personalInfo } from '../../data/portfolioData'
+import { personalInfo } from '../../data/portfolioData.js'
 import './Header.css'
 
 const Header = () => {

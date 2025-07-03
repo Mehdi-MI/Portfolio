@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
-import { personalInfo } from '../../data/portfolioData'
+import { personalInfo } from '../../data/portfolioData.js'
 import './Contact.css'
 
 const Contact = () => {

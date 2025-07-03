@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaLightbulb, FaHeart, FaCode } from 'react-icons/fa'
-import { aboutMe, personalInfo } from '../../data/portfolioData'
+import { aboutMe, personalInfo } from '../../data/portfolioData.js'
 import './About.css'
 
 const About = () => {
