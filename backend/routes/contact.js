@@ -1,21 +1,16 @@
 import express from 'express'
-import nodemailer from 'nodemailer'
 
 const router = express.Router()
 
-// Email configuration - using Gmail
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER || 'Hasbellaouimehdi@gmail.com',
-    pass: process.env.EMAIL_PASS || 'your-app-password'
-  }
-})
+// Since we're using Web3Forms for contact form submission,
+// this route can be simplified or removed entirely.
+// Keeping it for potential future use or fallback.
 
-// Contact form endpoint - simplified
 router.post('/', async (req, res) => {
   try {
     const { name, email, message } = req.body
+
+    console.log('Received contact form data:', { name, email, messageLength: message?.length })
 
     // Simple validation
     if (!name || !email || !message) {
@@ -34,35 +29,19 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Message must be at least 5 characters' })
     }
 
-    // Email options - simplified
-    const mailOptions = {
-      from: process.env.EMAIL_USER || 'Hasbellaouimehdi@gmail.com',
-      to: 'Hasbellaouimehdi@gmail.com',
-      subject: `Portfolio Contact from ${name}`,
-      html: `
-        <h3>New Contact Form Message</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Reply to: ${email}</small></p>
-      `,
-      replyTo: email
-    }
-
-    // Send email
-    await transporter.sendMail(mailOptions)
-    
+    // Log the contact attempt (for analytics/monitoring)
     console.log(`Contact form submission from ${name} (${email})`)
-    res.status(200).json({ message: 'Thank you for your message! I will get back to you soon.' })
+    
+    // Since Web3Forms handles the email sending, just return success
+    res.status(200).json({ message: 'Contact form data received successfully' })
     
   } catch (error) {
     console.error('Contact form error:', error)
     res.status(500).json({ 
-      message: 'Sorry, there was an issue sending your message. Please try again or contact me directly at Hasbellaouimehdi@gmail.com' 
+      message: 'Sorry, there was an issue processing your request.' 
     })
   }
 })
 
 export default router
+   

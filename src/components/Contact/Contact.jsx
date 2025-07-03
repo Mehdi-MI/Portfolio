@@ -4,48 +4,49 @@ import { personalInfo } from '../../data/portfolioData'
 import './Contact.css'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', or null
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-    // Clear status when user starts typing
-    if (submitStatus) setSubmitStatus(null)
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const onSubmit = async (event) => {
+    event.preventDefault();
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
+    const formData = new FormData(event.target);
+    formData.append("access_key", "bca28608-c255-4baf-95b4-5aa98731e3b9"); // TODO: Replace with your Web3Forms access key
 
-      if (response.ok) {
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+
+      if (res.success) {
+        console.log("Success", res);
         setSubmitStatus('success')
-        setFormData({ name: '', email: '', message: '' })
+        event.target.reset() // Reset form
       } else {
+        console.error("Error", res);
         setSubmitStatus('error')
       }
     } catch (error) {
+      console.error('Network error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
+  };
+
+  const handleChange = () => {
+    // Clear status when user starts typing
+    if (submitStatus) setSubmitStatus(null)
   }
 
   return (
@@ -106,7 +107,7 @@ const Contact = () => {
           </div>
 
           <div className="contact-form-wrapper">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form className="contact-form" onSubmit={onSubmit}>
               <div className="form-header">
                 <h3>Send Message</h3>
                 <p>Fill out the form below and I'll get back to you as soon as possible.</p>
@@ -120,7 +121,6 @@ const Contact = () => {
                     id="name"
                     name="name"
                     placeholder="Your Name"
-                    value={formData.name}
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
@@ -133,7 +133,6 @@ const Contact = () => {
                     id="email"
                     name="email"
                     placeholder="your.email@example.com"
-                    value={formData.email}
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
@@ -148,7 +147,6 @@ const Contact = () => {
                   name="message"
                   placeholder="Tell me about your project..."
                   rows="6"
-                  value={formData.message}
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
@@ -193,3 +191,4 @@ const Contact = () => {
 }
 
 export default Contact
+

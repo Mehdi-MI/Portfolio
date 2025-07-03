@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename)
 router.get('/resume', (req, res) => {
   try {
     // Fixed: Removed extra bracket from file path
-    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Mehdi-resume.pdf')
+    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Hasbellaoui Mehdi.pdf')
     
     // Check if file exists
     if (!fs.existsSync(cvPath)) {
@@ -21,7 +21,7 @@ router.get('/resume', (req, res) => {
 
     // Set headers for download
     res.setHeader('Content-Type', 'application/pdf')
-    res.setHeader('Content-Disposition', 'attachment; filename="Mehdi-Resume.pdf"')
+    res.setHeader('Content-Disposition', 'attachment; filename="Hasbellaoui Mehdi.pdf"')
     
     // Send file
     res.sendFile(cvPath, (err) => {
@@ -45,7 +45,7 @@ router.get('/resume', (req, res) => {
 // Optional: Get resume info endpoint (to check if file exists before showing download button)
 router.get('/resume/info', (req, res) => {
   try {
-    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Mehdi-resume.pdf')
+    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Hasbellaoui Mehdi.pdf')
     
     if (fs.existsSync(cvPath)) {
       const stats = fs.statSync(cvPath)

@@ -24,9 +24,6 @@ const Hero = () => {
             </p>
             
             <div className="hero-actions">
-              <a href="#contact" className="btn btn-primary">
-                Get In Touch
-              </a>
               <a 
                 href="http://localhost:5000/api/download/resume" 
                 className="btn btn-outline" 
