@@ -49,13 +49,21 @@ dirsToCreate.forEach(dir => {
   }
 })
 
-// Routes
+// API Routes (must come before static file serving)
 app.use('/api/contact', contactRoutes)
 app.use('/api/download', downloadRoutes)
 
 // Health check
 app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'Server is running!' })
+})
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, 'dist'))) // use 'build' for CRA
+
+// Catch-all route: serve index.html for SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html')) // or 'build' for CRA
 })
 
 // Error handling middleware
@@ -67,4 +75,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
-
