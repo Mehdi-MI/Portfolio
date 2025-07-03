@@ -10,23 +10,31 @@ const __dirname = path.dirname(__filename)
 // CV/Resume download endpoint
 router.get('/resume', (req, res) => {
   try {
-    // TODO: EDIT CV FILE PATH
-    const cvPath = path.join(__dirname, '..', 'public', 'cv', '[EDIT: your-resume.pdf]')
+    // Fixed: Removed extra bracket from file path
+    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Mehdi-resume.pdf')
     
     // Check if file exists
     if (!fs.existsSync(cvPath)) {
+      console.error('Resume file not found at:', cvPath)
       return res.status(404).json({ message: 'Resume not found' })
     }
 
     // Set headers for download
     res.setHeader('Content-Type', 'application/pdf')
-    res.setHeader('Content-Disposition', 'attachment; filename="[EDIT: Your-Name]-Resume.pdf"')
+    res.setHeader('Content-Disposition', 'attachment; filename="Mehdi-Resume.pdf"')
     
     // Send file
-    res.sendFile(cvPath)
-    
-    // Log download (optional)
-    console.log(`Resume downloaded at ${new Date().toISOString()}`)
+    res.sendFile(cvPath, (err) => {
+      if (err) {
+        console.error('Error sending file:', err)
+        if (!res.headersSent) {
+          res.status(500).json({ message: 'Error downloading file' })
+        }
+      } else {
+        // Log successful download
+        console.log(`Resume downloaded successfully at ${new Date().toISOString()}`)
+      }
+    })
     
   } catch (error) {
     console.error('Download error:', error)
@@ -34,20 +42,24 @@ router.get('/resume', (req, res) => {
   }
 })
 
-// Portfolio images or other files
-router.get('/file/:filename', (req, res) => {
+// Optional: Get resume info endpoint (to check if file exists before showing download button)
+router.get('/resume/info', (req, res) => {
   try {
-    const filename = req.params.filename
-    const filePath = path.join(__dirname, '..', 'public', 'files', filename)
+    const cvPath = path.join(__dirname, '..', 'public', 'cv', 'Mehdi-resume.pdf')
     
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).json({ message: 'File not found' })
+    if (fs.existsSync(cvPath)) {
+      const stats = fs.statSync(cvPath)
+      res.json({
+        available: true,
+        size: stats.size,
+        lastModified: stats.mtime
+      })
+    } else {
+      res.json({ available: false })
     }
-    
-    res.sendFile(filePath)
   } catch (error) {
-    console.error('File download error:', error)
-    res.status(500).json({ message: 'Error downloading file' })
+    console.error('Error checking resume info:', error)
+    res.status(500).json({ message: 'Error checking resume availability' })
   }
 })
 

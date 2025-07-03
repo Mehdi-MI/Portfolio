@@ -5,6 +5,7 @@ import rateLimit from 'express-rate-limit'
 import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import fs from 'fs'
 import contactRoutes from './routes/contact.js'
 import downloadRoutes from './routes/download.js'
 
@@ -36,6 +37,18 @@ app.use(express.urlencoded({ extended: true }))
 // Serve static files (CV, documents)
 app.use('/files', express.static(path.join(__dirname, 'public')))
 
+// Create public directories if they don't exist
+const publicDir = path.join(__dirname, 'public')
+const cvDir = path.join(__dirname, 'public', 'cv')
+
+const dirsToCreate = [publicDir, cvDir]
+dirsToCreate.forEach(dir => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+    console.log(`Created directory: ${dir}`)
+  }
+})
+
 // Routes
 app.use('/api/contact', contactRoutes)
 app.use('/api/download', downloadRoutes)
@@ -54,3 +67,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+

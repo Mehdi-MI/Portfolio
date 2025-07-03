@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCheckCircle, FaLightbulb, FaHeart, FaCode } from 'react-icons/fa'
+import { FaLightbulb, FaHeart, FaCode } from 'react-icons/fa'
 import { aboutMe, personalInfo } from '../../data/portfolioData'
 import './About.css'
 
@@ -30,18 +30,6 @@ const About = () => {
               </div>
             </div>
           </div>
-          
-          <div className="highlights-section">
-            <h4>What I Bring</h4>
-            <ul className="highlights">
-              {aboutMe.highlights.map((highlight, index) => (
-                <li key={index}>
-                  <FaCheckCircle className="highlight-icon" />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -49,3 +37,4 @@ const About = () => {
 }
 
 export default About
+ 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaCode, FaRocket } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaCode } from 'react-icons/fa'
 import { personalInfo, socialLinks } from '../../data/portfolioData'
 import './Hero.css'
 
@@ -19,26 +19,9 @@ const Hero = () => {
             </h1>
             <h2 className="hero-subtitle">{personalInfo.title}</h2>
             <p className="hero-description">
-              Passionate developer creating innovative solutions with modern technologies. 
-              I build scalable applications and love solving complex problems.
+              Crafting digital experiences that blend creativity with cutting-edge technology. 
+              I transform complex ideas into elegant, user-friendly solutions that make a real impact.
             </p>
-            
-            <div className="hero-stats">
-              <div className="stat-item">
-                <FaRocket className="stat-icon" />
-                <div>
-                  <span className="stat-number">50+</span>
-                  <span className="stat-label">Projects</span>
-                </div>
-              </div>
-              <div className="stat-item">
-                <FaCode className="stat-icon" />
-                <div>
-                  <span className="stat-number">3+</span>
-                  <span className="stat-label">Years</span>
-                </div>
-              </div>
-            </div>
             
             <div className="hero-actions">
               <a href="#contact" className="btn btn-primary">
