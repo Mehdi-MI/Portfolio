@@ -7,18 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-../node_modules
+node_modules
+dist
 dist-ssr
 *.local
-
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Backend uploads and public files
-backend/public/cv/*
-!backend/public/cv/.gitkeep
 
 # Editor directories and files
 .vscode/*
@@ -30,4 +22,10 @@ backend/public/cv/*
 *.njsproj
 *.sln
 *.sw?
-node_modules
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
