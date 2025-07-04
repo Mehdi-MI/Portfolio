@@ -30,3 +30,4 @@ backend/public/cv/*
 *.njsproj
 *.sln
 *.sw?
+node_modules
