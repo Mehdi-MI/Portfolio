@@ -4,6 +4,17 @@ import { personalInfo, socialLinks } from '../../data/portfolioData.js'
 import './Hero.css'
 
 const Hero = () => {
+  const handleResumeDownload = () => {
+    // Create a temporary link element and trigger download
+    const link = document.createElement('a')
+    link.href = '/cv/Hasbellaoui Mehdi.pdf'
+    link.download = 'Hasbellaoui Mehdi.pdf'
+    link.target = '_blank'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <section id="hero" className="hero">
       <div className="container">
@@ -24,14 +35,12 @@ const Hero = () => {
             </p>
             
             <div className="hero-actions">
-              <a 
-                href="http://localhost:5000/api/download/resume" 
-                className="btn btn-outline" 
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                onClick={handleResumeDownload}
+                className="btn btn-outline"
               >
                 <FaDownload /> Resume
-              </a>
+              </button>
             </div>
 
             <div className="social-links">

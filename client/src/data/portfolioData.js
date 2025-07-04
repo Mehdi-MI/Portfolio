@@ -14,6 +14,11 @@ export const socialLinks = {
   email: "Hasbellaouimehdi@gmail.com"
 }
 
+export const resumeConfig = {
+  fileName: "Hasbellaoui Mehdi.pdf",
+  filePath: "/cv/Hasbellaoui Mehdi.pdf"
+}
+
 export const aboutMe = {
   description: "Passionate Full Stack Developer with expertise in modern web technologies. I love creating efficient, scalable solutions and turning ideas into reality through clean, maintainable code.",
   highlights: [
