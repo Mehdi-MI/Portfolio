@@ -25,7 +25,7 @@ const Hero = () => {
             
             <div className="hero-actions">
               <a 
-                href="http://localhost:5000/api/download/resume" 
+                href="https://hasbellaoui-mehdi-backend.onrender.com/api/download/resume" 
                 className="btn btn-outline" 
                 target="_blank"
                 rel="noopener noreferrer"
