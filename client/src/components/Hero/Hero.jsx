@@ -32,7 +32,7 @@ const Hero = () => {
 
             <div className="hero-actions">
               <a
-                href="../../../public/hasbellaoui-mehdi-cv.pdf"  // Direct path to root public folder
+                href="https://drive.google.com/uc?export=download&id=1bnyosWoYJr2HeebungL6RojUJAKvCtrQ"
                 download="hasbellaoui-mehdi-cv.pdf"
                 className="btn btn-outline inline-flex items-center gap-2"
               >
