@@ -16,7 +16,7 @@ export const socialLinks = {
 
 export const resumeConfig = {
   fileName: "hasbellaoui-mehdi-cv.pdf",
-  filePath: "https://drive.google.com/uc?export=download&id=1bnyosWoYJr2HeebungL6RojUJAKvCtrQ",
+  filePath: "https://drive.google.com/file/d/1bnyosWoYJr2HeebungL6RojUJAKvCtrQ/view?usp=sharing",
 }
 
 export const aboutMe = {
