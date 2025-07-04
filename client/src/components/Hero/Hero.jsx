@@ -32,7 +32,7 @@ const Hero = () => {
 
             <div className="hero-actions">
               <a
-                href="https://drive.google.com/file/d/1bnyosWoYJr2HeebungL6RojUJAKvCtrQ/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DtB4akVMrepi_aWDw_UM8c2TdOAE8z9W/view?usp=sharing"
                 download="hasbellaoui-mehdi-cv.pdf"
                 className="btn btn-outline inline-flex items-center gap-2"
               >

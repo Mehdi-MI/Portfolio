@@ -3,7 +3,7 @@ import { FaDownload } from "react-icons/fa";
 
 const DownloadCV = () => {
   // Convert Google Drive view link to direct download link
-  const googleDriveDirectLink = "https://drive.google.com/file/d/1bnyosWoYJr2HeebungL6RojUJAKvCtrQ/view?usp=sharing";
+  const googleDriveDirectLink = "https://drive.google.com/file/d/1DtB4akVMrepi_aWDw_UM8c2TdOAE8z9W/view?usp=sharing";
   
   return (
     <a
