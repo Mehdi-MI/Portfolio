@@ -13,7 +13,7 @@ const Hero = () => {
   const handleResumeDownload = () => {
     // Create a temporary link element and trigger download
     const link = document.createElement("a");
-    link.href = "/cv/Hasbellaoui Mehdi.pdf";
+    link.href = "../public/hasbellaoui-mehdi-cv.pdf"; // Adjust the path as necessary
     link.download = "Hasbellaoui Mehdi.pdf";
     link.target = "_blank";
     document.body.appendChild(link);
@@ -43,7 +43,7 @@ const Hero = () => {
 
             <div className="hero-actions">
               <a
-                href="/Hasbellaoui_Mehdi.pdf"
+                href="../../public/hasbellaoui-mehdi-cv.pdf"
                 download="Hasbellaoui_Mehdi.pdf"
                 className="btn btn-outline inline-flex items-center gap-2"
               >
