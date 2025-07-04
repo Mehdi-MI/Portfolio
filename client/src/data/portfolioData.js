@@ -16,7 +16,7 @@ export const socialLinks = {
 
 export const resumeConfig = {
   fileName: "hasbellaoui-mehdi-cv.pdf",
-  filePath: "../public/hasbellaoui-mehdi-cv.pdf",
+  filePath: "../../public/hasbellaoui-mehdi-cv.pdf",  // Direct path to root public folder
 }
 
 export const aboutMe = {

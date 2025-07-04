@@ -10,17 +10,6 @@ import { personalInfo, socialLinks } from "../../data/portfolioData.js";
 import "./Hero.css";
 
 const Hero = () => {
-  const handleResumeDownload = () => {
-    // Create a temporary link element and trigger download
-    const link = document.createElement("a");
-    link.href = "../../public/hasbellaoui-mehdi-cv.pdf"; // Adjust the path as necessary
-    link.download = "hasbellaoui-mehdi-cv.pdf";
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section id="hero" className="hero">
       <div className="container">
@@ -43,7 +32,7 @@ const Hero = () => {
 
             <div className="hero-actions">
               <a
-                href="../../public/hasbellaoui-mehdi-cv.pdf"
+                href="../../../public/hasbellaoui-mehdi-cv.pdf"  // Direct path to root public folder
                 download="hasbellaoui-mehdi-cv.pdf"
                 className="btn btn-outline inline-flex items-center gap-2"
               >
