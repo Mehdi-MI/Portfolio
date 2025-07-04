@@ -5,7 +5,7 @@ const DownloadCV = () => {
   const handleDownload = () => {
     // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/cv/Mehdi_CV.pdf'; // Path to your CV in public folder
+    link.href = '../cv/Hasbellaoui Mehdi.pdf'; // Path to your CV in public folder
     link.download = 'Mehdi_CV.pdf'; // Filename for download
     document.body.appendChild(link);
     link.click();
