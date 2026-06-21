@@ -14,7 +14,7 @@ Currently pursuing a **Master's in Distributed Networks and Computer Systems** a
 📞 +213-561724242
 📍 Algeria
 🔗 [LinkedIn](https://www.linkedin.com/in/mehdi-hasbellaoui/) · [GitHub](https://github.com/Mehdi-MI)
-📄 [Download CV](https://drive.google.com/file/d/1b98dZwFUPYorY-5skco10tbFY29epHqV/view?usp=drivesdk)
+📄 [Download CV](https://drive.google.com/file/d/1cbKIjRSlYOT2x6K8C7ITnxsvNmiTcUji/view?usp=sharing)
 
 ---
 
