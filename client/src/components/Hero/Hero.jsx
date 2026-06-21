@@ -6,7 +6,7 @@ import {
   FaDownload,
   FaCode,
 } from "react-icons/fa";
-import { personalInfo, socialLinks } from "../../data/portfolioData.js";
+import { personalInfo, socialLinks, resumeConfig } from "../../data/portfolioData.js";
 import "./Hero.css";
 
 const Hero = () => {
@@ -17,7 +17,7 @@ const Hero = () => {
           <div className="hero-text">
             <div className="hero-badge">
               <FaCode className="badge-icon" />
-              <span>Available for work</span>
+              <span>Open to opportunities</span>
             </div>
 
             <h1 className="hero-title">
@@ -25,16 +25,20 @@ const Hero = () => {
             </h1>
             <h2 className="hero-subtitle">{personalInfo.title}</h2>
             <p className="hero-description">
-              Crafting digital experiences that blend creativity with
-              cutting-edge technology. I transform complex ideas into elegant,
-              user-friendly solutions that make a real impact.
+              I design, build, and deploy reliable software solutions — from
+              interactive frontends to scalable backends and Dockerized
+              infrastructure. Always learning, always shipping.
             </p>
 
             <div className="hero-actions">
+              <a href="#contact" className="btn btn-primary">
+                Get In Touch
+              </a>
               <a
-                href="https://drive.google.com/file/d/1b98dZwFUPYorY-5skco10tbFY29epHqV/view?usp=drivesdk"
-                download="hasbellaoui-mehdi-cv.pdf"
-                className="btn btn-outline inline-flex items-center gap-2"
+                href={resumeConfig.filePath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
               >
                 <FaDownload /> Resume
               </a>
@@ -45,6 +49,7 @@ const Hero = () => {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <FaGithub />
               </a>
@@ -52,10 +57,11 @@ const Hero = () => {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <FaLinkedin />
               </a>
-              <a href={`mailto:${socialLinks.email}`}>
+              <a href={`mailto:${socialLinks.email}`} aria-label="Email">
                 <FaEnvelope />
               </a>
             </div>
